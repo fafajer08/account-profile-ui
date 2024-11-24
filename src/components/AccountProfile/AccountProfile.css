@@ -1,0 +1,239 @@
+/* Overall Layout */
+.container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fc;
+  height: 100vh;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Span */
+.span {
+    font-weight: 600;
+    margin-left: 200px;
+    color: #6c757d;
+}
+
+/* Side Panel Tabs */
+.side-panel-tabs {
+  border-right: none;
+  padding-right: 15px;
+}
+
+.side-panel-tabs .nav-link {
+  font-weight: bold;
+  color: #6c757d;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.side-panel-tabs .nav-link.active {
+  background-color: #6553f5;
+  color: white;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.side-panel-tabs .nav-link:hover {
+  background-color: #e5e9f5;
+  color: #6553f5;
+}
+
+/* Profile Image Placeholder */
+.profile-image-placeholder {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #e5e9f5;
+  border: 2px solid #d3d7df;
+  font-size: 2rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+form .form-label {
+  font-weight: 600;
+  color: #6c757d;
+}
+
+form .form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background-color: #f9fafc;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+form .form-control:focus {
+  border-color: #6553f5;
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem rgba(101, 83, 245, 0.25);
+}
+
+.text-muted {
+  font-weight: 700;
+}
+
+/* Buttons */
+button {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(101, 83, 245, 0.5);
+}
+
+button.btn-primary {
+  background-color: #6553f5;
+  color: white;
+}
+
+button.btn-primary:hover {
+  background-color: #5542d1;
+}
+
+button.btn-secondary {
+  background-color: #f9fafc;
+  color: #6c757d;
+  border: 1px solid #d3d7df;
+}
+
+button.btn-secondary:hover {
+  background-color: #e5e9f5;
+}
+
+button.btn-danger {
+  background-color: #f45a5a;
+  color: white;
+}
+
+button.btn-danger:hover {
+  background-color: #d93c3c;
+}
+
+/* default 2fa button */
+.btn-secondary-dfa {
+  display: flex;
+  align-items: center;
+  font-size: .7rem;
+  border: 1px solid lightgray;
+}
+
+.btn-secondary-dfa:hover {
+  background-color: lightgray;  /* Darker gray on hover */
+}
+
+.bi-gear {
+  font-size: 1rem;
+}
+.bi-question-circle {
+  font-size: 1.5rem;
+}
+
+/* Tab Content */
+.tab-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1050; /* Ensures it stays above other content */
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+
+/* Mobile-first design */
+@media (max-width: 576px) {
+  /* Ensure the form select and button elements are full-width */
+  .auth-control,
+  .btn-secondary-dfa {
+    width: 100%;
+    margin-top: 10px;  /* Add spacing between the select and button */
+  }
+
+  .bi-gear,
+  .bi-question-circle {
+    font-size: 1.2rem;  /* Adjust icon sizes for mobile */
+  }
+
+  /* Adjust the layout of the question mark icon */
+  .bi-question-circle {
+    font-size: 1.5rem; /* Slightly larger size for better visibility */
+    margin-top: 10px;  /* Add top margin to space out from the button */
+  }
+
+  /* Profile Image Container */
+  .profile-image-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center;     /* Vertically center the image */
+    height: 200px;           /* Set a specific height (or use auto) */
+  }
+
+  .profile-image-container img {
+    max-width: 100%;         /* Ensure the image doesn't overflow */
+    max-height: 100%;        /* Ensure the image stays within the container */
+  }
+}
+
+/* For larger screens (e.g., tablets, desktops) */
+@media (min-width: 577px) {
+  .auth-control,
+  .btn-secondary-dfa {
+    width: auto;  /* Let the select and button elements auto-width on larger screens */
+  }
+
+  /* Keep the icons at the original size */
+  .bi-gear,
+  .bi-question-circle {
+    font-size: 1.5rem;  /* Default icon size */
+  }
+
+  /* Remove the margin-top for larger screens */
+  .bi-question-circle {
+    margin-top: 0;
+  }
+
+  /* Profile Image Container */
+  .profile-image-container {
+    display: block;          /* Default block display for larger screens */
+    text-align: center;      /* Center the image horizontally */
+  }
+
+  .profile-image-container img {
+    max-width: 150px;        /* Set max width for larger screens */
+    height: auto;            /* Maintain the aspect ratio */
+  }
+}
+
+/* Ensure good spacing between the form elements, especially on larger screens */
+@media (min-width: 992px) {
+  .btn-secondary-dfa {
+    margin-left: 10px;
+  }
+}
