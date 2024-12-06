@@ -14,7 +14,7 @@ const RegisterPage = () => {
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     const newUser = { firstName, lastName, username, email, password, phone, ext, mobile };
     localStorage.setItem('user', JSON.stringify(newUser));  // Store user data
     alert('Registration successful!');

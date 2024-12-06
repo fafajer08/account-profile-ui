@@ -1,7 +1,7 @@
 // /controllers/userProfileController.js
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const UserProfile = require('../models/userProfile');
+const userProfile = require('../models/userProfile');
 
 // Register a new user
 const registerUser = async (req, res) => {
@@ -9,7 +9,7 @@ const registerUser = async (req, res) => {
 
   try {
     // Check if the username already exists
-    const existingUser = await UserProfile.findOne({ username });
+    const existingUser = await userProfile.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'Username already exists' });
     }
@@ -18,9 +18,9 @@ const registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new user profile
-    const newUser = new UserProfile({
+    const newUser = new userProfile({
       username,
-      password: hashedPassword,
+      password,
       firstName,
       lastName,
       email,
@@ -42,7 +42,7 @@ const loginUser = async (req, res) => {
 
   try {
     // Find the user by username
-    const userProfile = await UserProfile.findOne({ username });
+    const userProfile = await userProfile.findOne({ username });
 
     if (!userProfile) {
       return res.status(404).json({ message: 'User not found' });
